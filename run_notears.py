@@ -139,3 +139,14 @@ for sim in range(n_sims):
             accs[k] += [acc[k], acc_symm[k]]
 df = pd.DataFrame(accs)
 
+df['method'] = 'notears'
+df.to_csv('notears_graph_metrics.csv')
+
+df2 = pd.read_csv("all_sims_subjs_graph_metrics.csv")
+df2 = df2.drop(labels='Unnamed: 0', axis=1)
+
+final_sims_subjs_graph_metrics = pd.concat([df, df2])
+final_sims_subjs_graph_metrics.to_csv("final_sims_subjs_graph_metrics.csv")
+
+
+
