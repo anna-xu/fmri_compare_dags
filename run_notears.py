@@ -35,6 +35,7 @@ def tabulate_accuracy(ground_truth, estimate_graph, symm=False):
 
     predicted_positives = np.sum(estimate_graph==1)
 
+    # implementation for SHD copied from Causal Discovery Toolbox
     diff = np.abs(ground_truth.astype(int) - estimate_graph.astype(int))
     diff = diff + diff.T
     diff[diff > 1] = 1
